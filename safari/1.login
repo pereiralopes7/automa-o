@@ -1,0 +1,25 @@
+from selenium import webdriver #importação da biblioteca Selenium
+import time #Tempo de esperar a página carregar
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys #Importação do By para localizar elementos
+
+
+driver = webdriver.Safari() #Inicializa o driver do Safari    
+driver.get("https://www.saucedemo.com/") #Abre o site do Google
+
+time.sleep(5) #Tempo de espera da página aberta 
+
+campo_name= driver.find_element(By.ID, "user-name") #Procurando o elemento pelo ID
+campo_name.click() #Clica no elemento encontrado
+campo_name.send_keys("standard_user") #Onde vai ser digitado o texto
+
+campo_senha= driver.find_element(By.ID, "password") #Procurando o elemento pelo ID
+campo_senha.click() #Clica no elemento encontrado
+campo_senha.send_keys("secret_sauce") #Onde vai ser digitado o texto
+
+time.sleep(2)
+
+campo_login = driver.find_element(By.ID, "login-button") #Procurando o elemento pelo ID
+campo_login.click() #Clica no elemento encontrado
+
+time.sleep(5)

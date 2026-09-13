@@ -1,0 +1,67 @@
+from selenium import webdriver #importação da biblioteca Selenium
+import time #Tempo de esperar a página carregar
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys #Importação do By para localizar elementos
+
+
+driver = webdriver.Safari() #Inicializa o driver do Safari    
+driver.get("https://www.saucedemo.com/") #Abre o site do Google
+time.sleep(5) #Tempo de espera da página aberta 
+
+campo_name= driver.find_element(By.ID, "user-name") #Procurando o elemento pelo ID
+campo_name.click() #Clica no elemento encontrado
+campo_name.send_keys("standard_user") #Onde vai ser digitado o texto
+
+campo_senha= driver.find_element(By.ID, "password") 
+campo_senha.click() 
+campo_senha.send_keys("secret_sauce") 
+time.sleep(2)
+
+campo_login = driver.find_element(By.ID, "login-button") 
+campo_login.click() 
+time.sleep(5)
+
+bolsa = driver.find_element(By.ID, "add-to-cart-sauce-labs-backpack") 
+bolsa.click() 
+time.sleep(1)
+
+scrooll = driver.find_element(By.ID, "add-to-cart-test.allthethings()-t-shirt-(red)") #Rola até o elemento pelo ID
+scrooll.click() 
+time.sleep(2)
+
+scrooll = driver.find_element(By.ID, "shopping_cart_container") 
+scrooll.click()
+time.sleep(2)
+
+remover = driver.find_element(By.ID, "remove-sauce-labs-backpack") 
+remover.click() 
+time.sleep(1)
+
+finalizar = driver.find_element(By.ID, "checkout")
+finalizar.click()
+time.sleep(3)
+
+name = driver.find_element(By.ID, "first-name")
+name.click()
+name.send_keys("Mateus")
+
+sobrenome = driver.find_element(By.ID, "last-name")
+sobrenome.click()
+sobrenome.send_keys("Silva")
+
+postal = driver.find_element(By.ID, "postal-code")
+postal.click()
+postal.send_keys("12345")
+time.sleep(1)
+
+continuar = driver.find_element(By.ID, "continue")
+continuar.click()
+time.sleep(2)
+
+scroll_finalizar = driver.find_element(By.ID, "finish") #Buscando pelo ID do elemento
+scroll_finalizar.click()
+time.sleep(3)
+
+if driver.find_element(By.XPATH, "//h2[text()='Thank you for your order!']") is not None:
+    print("Pedido finalizado com sucesso!")
+
