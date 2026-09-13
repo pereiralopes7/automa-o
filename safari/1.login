@@ -23,3 +23,4 @@ campo_login = driver.find_element(By.ID, "login-button") #Procurando o elemento 
 campo_login.click() #Clica no elemento encontrado
 
 time.sleep(5)
+driver.quit() #Fecha o navegador
